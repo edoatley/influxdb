@@ -1,0 +1,30 @@
+server:
+  port: 9000
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: influx-app
+      topic: rawtweets
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      topic: rawtweets
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info,health,metrics
+  metrics:
+    export:
+      influx:
+        db: gatling
+        userName: user
+        password: kraken
+        uri: http://161.35.163.24:32678
+        step: 15s
+        autoCreateDb: false
