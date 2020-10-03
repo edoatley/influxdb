@@ -1,5 +1,8 @@
 package com.edoatley.influx;
 
-@SpringBootApplicatio§n
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class Application {
+
 }
